@@ -1,12 +1,12 @@
-%global commit 39d6db5af28cca5993e95bb498cf799f3d8cd3ff
+%global commit d01bf4b66d50b9cd8261700ee9f2cc483cfd8faf
 %global short_commit %(c=%{commit}; echo ${c:0:7})
-%global commit_date 20170324
+%global commit_date 20170708
 
 %global kodi_addon pvr.stalker
 %global kodi_version 17.0
 
 Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
-Version:        2.8.5
+Version:        2.8.8
 Release:        1%{?dist}
 Summary:        A PVR client that connects Kodi to Stalker Middleware
 
@@ -60,6 +60,9 @@ mv README.md.new README.md
 
 
 %changelog
+* Tue Oct 03 2017 Mohamed El Morabity <melmorabity@fedoraproject.org> - 2.8.8-1
+- Update to 2.8.8
+
 * Thu Apr 27 2017 Mohamed El Morabity <melmorabity@fedorapeople.org> - 2.8.5-1
 - Update to latest stable release for Kodi 17
 
