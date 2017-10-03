@@ -1,0 +1,11 @@
+diff -up ./src/CWatchdog.h.orig ./src/CWatchdog.h
+--- ./src/CWatchdog.h.orig	2017-03-24 21:31:17.000000000 +0100
++++ ./src/CWatchdog.h	2017-04-27 11:10:38.648088173 +0200
+@@ -22,6 +22,7 @@
+  */
+ 
+ #include <thread>
++#include <functional>
+ 
+ #include "SAPI.h"
+ 
