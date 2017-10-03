@@ -1,0 +1,12 @@
+diff -up ./CMakeLists.txt.orig ./CMakeLists.txt
+--- ./CMakeLists.txt.orig	2017-03-24 21:31:17.000000000 +0100
++++ ./CMakeLists.txt	2017-04-26 17:51:01.122170033 +0200
+@@ -10,7 +10,7 @@ find_package(Kodi REQUIRED)
+ find_package(kodiplatform REQUIRED)
+ find_package(p8-platform REQUIRED)
+ find_package(LibXml2 REQUIRED)
+-find_package(JsonCpp REQUIRED)
++find_package(jsoncpp REQUIRED)
+ 
+ include_directories(
+         ${kodiplatform_INCLUDE_DIRS}
