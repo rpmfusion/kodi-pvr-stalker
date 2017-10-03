@@ -7,7 +7,7 @@
 
 Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 Version:        2.8.8
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        A PVR client that connects Kodi to Stalker Middleware
 
 Group:          Applications/Multimedia
@@ -16,8 +16,6 @@ URL:            https://github.com/kodi-pvr/%{kodi_addon}/
 Source0:        https://github.com/kodi-pvr/%{kodi_addon}/archive/%{short_commit}/%{name}-%{short_commit}.tar.gz
 # Fix jsoncpp library detection
 Patch0:         %{name}-2.8.5-jsoncpp.patch
-# Fix build
-Patch1:         %{name}-2.8.5-build.patch
 
 BuildRequires:  cmake
 BuildRequires:  gcc
@@ -60,6 +58,9 @@ mv README.md.new README.md
 
 
 %changelog
+* Tue Oct 03 2017 Mohamed El Morabity <melmorabity@fedoraproject.org> - 2.8.8-2
+- Drop kodi-pvr-stalker-2.8.5-build.patch (merged upstream)
+
 * Tue Oct 03 2017 Mohamed El Morabity <melmorabity@fedoraproject.org> - 2.8.8-1
 - Update to 2.8.8
 
