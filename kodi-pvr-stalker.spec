@@ -7,7 +7,7 @@
 
 Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 Version:        2.8.8
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        A PVR client that connects Kodi to Stalker Middleware
 
 Group:          Applications/Multimedia
@@ -58,6 +58,9 @@ mv README.md.new README.md
 
 
 %changelog
+* Thu Mar 01 2018 RPM Fusion Release Engineering <leigh123linux@googlemail.com> - 2.8.8-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
+
 * Tue Oct 03 2017 Mohamed El Morabity <melmorabity@fedoraproject.org> - 2.8.8-2
 - Drop kodi-pvr-stalker-2.8.5-build.patch (merged upstream)
 
