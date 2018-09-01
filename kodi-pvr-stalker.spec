@@ -1,13 +1,13 @@
-%global commit 77eec69df2890689187d819e6b4c020eb35b7279
+%global commit 2eb66d11f8f90040824067d41919cf53f6267228
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commitdate 20180205
+%global commitdate 20180825
 
 %global kodi_addon pvr.stalker
 %global kodi_version 18.0
 
 Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
-Version:        3.3.2
-Release:        2%{?dist}
+Version:        3.4.5
+Release:        1%{?dist}
 Summary:        Stalker PVR for Kodi
 
 License:        GPLv2+
@@ -23,7 +23,7 @@ BuildRequires:  pkgconfig(jsoncpp)
 BuildRequires:  pkgconfig(libxml-2.0)
 BuildRequires:  platform-devel
 Requires:       kodi >= %{kodi_version}
-ExclusiveArch:  i686 x86_64
+ExclusiveArch:  i686 x86_64 aarch64
 
 %description
 %{summary}.
@@ -56,6 +56,10 @@ export PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1
 
 
 %changelog
+* Sat Sep 01 2018 Mohamed El Morabity <melmorabity@fedoraproject.org> - 3.4.5-1
+- Update to 3.4.5
+- Enable aarch64 build
+
 * Thu Jul 26 2018 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 3.3.2-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
