@@ -1,18 +1,15 @@
-%global commit 2eb66d11f8f90040824067d41919cf53f6267228
-%global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commitdate 20180825
-
 %global kodi_addon pvr.stalker
 %global kodi_version 18.0
+%global kodi_codename Leia
 
 Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
-Version:        3.4.5
-Release:        4%{?dist}
+Version:        3.4.10
+Release:        1%{?dist}
 Summary:        Stalker PVR for Kodi
 
 License:        GPLv2+
 URL:            https://github.com/kodi-pvr/%{kodi_addon}/
-Source0:        https://github.com/kodi-pvr/%{kodi_addon}/archive/%{shortcommit}/%{kodi_addon}-%{shortcommit}.tar.gz
+Source0:        %{url}/archive/%{version}-%{kodi_codename}/%{kodi_addon}-%{version}.tar.gz
 
 BuildRequires:  cmake
 BuildRequires:  gcc
@@ -30,12 +27,12 @@ ExcludeArch:    %{power64} ppc64le
 
 
 %prep
-%autosetup -n %{kodi_addon}-%{commit} -p0
+%autosetup -n %{kodi_addon}-%{version}-%{kodi_codename}
 
 # Fix wrong end-of-lines encoding
-sed "s/\r//" README.md >README.md.new
-touch -r README.md README.md.new
-mv README.md.new README.md
+# sed "s/\r//" README.md >README.md.new
+# touch -r README.md README.md.new
+# mv README.md.new README.md
 
 
 %build
@@ -51,11 +48,15 @@ export PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1
 
 %files
 %doc README.md %{kodi_addon}/changelog.txt
+%license LICENSE
 %{_libdir}/kodi/addons/%{kodi_addon}/
 %{_datadir}/kodi/addons/%{kodi_addon}/
 
 
 %changelog
+* Mon Jan 13 2020 Mohamed El Morabity <melmorabity@fedoraproject.org> - 3.4.10-1
+- Update to 3.4.10
+
 * Fri Aug 09 2019 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 3.4.5-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
