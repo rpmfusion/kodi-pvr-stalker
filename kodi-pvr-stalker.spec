@@ -1,9 +1,8 @@
-# Use old cmake macro
-%global __cmake_in_source_build 1
-
 %global kodi_addon pvr.stalker
 %global kodi_version 18.0
 %global kodi_codename Matrix
+
+%undefine __cmake_in_source_build
 
 Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 Version:        6.0.0
@@ -41,12 +40,12 @@ ExcludeArch:    %{power64} ppc64le
 %build
 # https://gitlab.kitware.com/cmake/cmake/issues/17555#note_355574
 export PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1
-%cmake3 .
-%make_build
+%cmake3
+%cmake3_build
 
 
 %install
-%make_install
+%cmake3_install
 
 
 %files
