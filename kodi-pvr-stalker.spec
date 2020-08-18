@@ -6,7 +6,7 @@
 
 Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 Version:        6.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Stalker PVR for Kodi
 
 License:        GPLv2+
@@ -56,6 +56,9 @@ export PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1
 
 
 %changelog
+* Tue Aug 18 2020 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 6.0.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
 * Mon Jul 13 2020 Leigh Scott <leigh123linux@gmail.com> - 6.0.0-1
 - Update to 6.0.0
 
