@@ -2,11 +2,9 @@
 %global kodi_version 18.0
 %global kodi_codename Matrix
 
-%undefine __cmake_in_source_build
-
 Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
-Version:        6.0.0
-Release:        2%{?dist}
+Version:        7.0.0
+Release:        1%{?dist}
 Summary:        Stalker PVR for Kodi
 
 License:        GPLv2+
@@ -17,10 +15,8 @@ BuildRequires:  cmake3
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
 BuildRequires:  kodi-devel >= %{kodi_version}
-BuildRequires:  kodi-platform-devel >= %{kodi_version}
 BuildRequires:  pkgconfig(jsoncpp)
 BuildRequires:  pkgconfig(libxml-2.0)
-BuildRequires:  platform-devel
 Requires:       kodi >= %{kodi_version}
 ExcludeArch:    %{power64} ppc64le
 
@@ -30,11 +26,6 @@ ExcludeArch:    %{power64} ppc64le
 
 %prep
 %autosetup -n %{kodi_addon}-%{version}-%{kodi_codename}
-
-# Fix wrong end-of-lines encoding
-# sed "s/\r//" README.md >README.md.new
-# touch -r README.md README.md.new
-# mv README.md.new README.md
 
 
 %build
@@ -56,6 +47,9 @@ export PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1
 
 
 %changelog
+* Mon Nov 16 2020 Mohamed El Morabity <melmorabity@fedoraproject.org> - 7.0.0-1
+- Update to 7.0.0
+
 * Tue Aug 18 2020 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 6.0.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
 
