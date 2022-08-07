@@ -4,7 +4,7 @@
 
 Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 Version:        7.1.1
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Stalker PVR for Kodi
 
 License:        GPLv2+
@@ -47,6 +47,10 @@ export PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1
 
 
 %changelog
+* Sun Aug 07 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 7.1.1-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild and ffmpeg
+  5.1
+
 * Wed Feb 09 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 7.1.1-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_36_Mass_Rebuild
 
