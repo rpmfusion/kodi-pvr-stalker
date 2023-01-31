@@ -1,24 +1,26 @@
 %global kodi_addon pvr.stalker
-%global kodi_version 18.0
-%global kodi_codename Matrix
+%global kodi_version 20
+%global kodi_codename Nexus
 
 Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
-Version:        7.1.1
-Release:        4%{?dist}
+Version:        20.3.1
+Release:        1%{?dist}
 Summary:        Stalker PVR for Kodi
 
-License:        GPLv2+
+License:        GPL-2.0-or-later
 URL:            https://github.com/kodi-pvr/%{kodi_addon}/
 Source0:        %{url}/archive/%{version}-%{kodi_codename}/%{kodi_addon}-%{version}.tar.gz
+Source1:        %{name}.metainfo.xml
 
 BuildRequires:  cmake3
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
 BuildRequires:  kodi-devel >= %{kodi_version}
+BuildRequires:  libappstream-glib
 BuildRequires:  pkgconfig(jsoncpp)
 BuildRequires:  pkgconfig(libxml-2.0)
 Requires:       kodi >= %{kodi_version}
-ExcludeArch:    %{power64} ppc64le
+ExcludeArch:    %{power64}
 
 %description
 %{summary}.
@@ -30,7 +32,7 @@ ExcludeArch:    %{power64} ppc64le
 
 %build
 # https://gitlab.kitware.com/cmake/cmake/issues/17555#note_355574
-export PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1
+# export PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1
 %cmake3
 %cmake3_build
 
@@ -38,15 +40,28 @@ export PKG_CONFIG_ALLOW_SYSTEM_CFLAGS=1
 %install
 %cmake3_install
 
+# Install AppData file
+install -Dpm 0644 %{SOURCE1} $RPM_BUILD_ROOT%{_metainfodir}/%{name}.metainfo.xml
+
+
+%check
+appstream-util validate-relax --nonet $RPM_BUILD_ROOT%{_metainfodir}/%{name}.metainfo.xml
+
 
 %files
 %doc README.md %{kodi_addon}/changelog.txt
 %license LICENSE.md
 %{_libdir}/kodi/addons/%{kodi_addon}/
 %{_datadir}/kodi/addons/%{kodi_addon}/
+%{_metainfodir}/%{name}.metainfo.xml
 
 
 %changelog
+* Sun Jan 29 2023 Mohamed El Morabity <melmorabity@fedoraproject.org> - 20.3.1-1
+- Update to 20.3.1
+- Add AppStream metadata
+- Switch to SPDX license identifiers
+
 * Sun Aug 07 2022 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 7.1.1-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild and ffmpeg
   5.1
