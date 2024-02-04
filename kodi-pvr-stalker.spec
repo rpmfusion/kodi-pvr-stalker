@@ -11,6 +11,7 @@ License:        GPL-2.0-or-later
 URL:            https://github.com/kodi-pvr/%{kodi_addon}/
 Source0:        %{url}/archive/%{version}-%{kodi_codename}/%{kodi_addon}-%{version}.tar.gz
 Source1:        %{name}.metainfo.xml
+Patch1:         malloc.patch
 
 BuildRequires:  cmake3
 BuildRequires:  gcc
@@ -27,7 +28,7 @@ ExcludeArch:    %{power64}
 
 
 %prep
-%autosetup -n %{kodi_addon}-%{version}-%{kodi_codename}
+%autosetup -p1 -n %{kodi_addon}-%{version}-%{kodi_codename}
 
 
 %build
@@ -59,6 +60,7 @@ appstream-util validate-relax --nonet $RPM_BUILD_ROOT%{_metainfodir}/%{name}.met
 %changelog
 * Sat Feb 03 2024 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 20.3.1-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_40_Mass_Rebuild
+- Add an trivial patch to fix build with GCC14
 
 * Wed Aug 02 2023 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 20.3.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_39_Mass_Rebuild
