@@ -4,7 +4,7 @@
 
 Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
 Version:        21.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Stalker PVR for Kodi
 
 License:        GPL-2.0-or-later
@@ -58,6 +58,9 @@ appstream-util validate-relax --nonet $RPM_BUILD_ROOT%{_metainfodir}/%{name}.met
 
 
 %changelog
+* Fri Aug 02 2024 RPM Fusion Release Engineering <sergiomb@rpmfusion.org> - 21.0.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_41_Mass_Rebuild
+
 * Thu Mar 14 2024 Mohamed El Morabity <melmorabity@fedoraproject.org> - 21.0.0-1
 - Update to 21.0.0
 
