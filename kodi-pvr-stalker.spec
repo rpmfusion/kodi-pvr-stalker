@@ -3,8 +3,8 @@
 %global kodi_codename Omega
 
 Name:           kodi-%(tr "." "-" <<<%{kodi_addon})
-Version:        21.0.0
-Release:        4%{?dist}
+Version:        21.1.3
+Release:        1%{?dist}
 Summary:        Stalker PVR for Kodi
 
 License:        GPL-2.0-or-later
@@ -58,6 +58,9 @@ appstream-util validate-relax --nonet $RPM_BUILD_ROOT%{_metainfodir}/%{name}.met
 
 
 %changelog
+* Sat Mar 29 2025 Leigh Scott <leigh123linux@gmail.com> - 21.1.3-1
+- Update to 21.1.3
+
 * Sat Mar 15 2025 Leigh Scott <leigh123linux@gmail.com> - 21.0.0-4
 - Rebuild for new libjsoncpp
 
