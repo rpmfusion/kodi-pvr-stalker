@@ -11,7 +11,6 @@ License:        GPL-2.0-or-later
 URL:            https://github.com/kodi-pvr/%{kodi_addon}/
 Source0:        %{url}/archive/%{version}-%{kodi_codename}/%{kodi_addon}-%{version}.tar.gz
 Source1:        %{name}.metainfo.xml
-Patch1:         malloc.patch
 
 BuildRequires:  cmake
 BuildRequires:  gcc
